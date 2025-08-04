@@ -1,0 +1,138 @@
+[Node.js]
+
+  - 서버 사이드 JavaScript 런타입 환경
+  - 브라우저가 아닌 환경에서도 JavaScript를 실행하게 해줌
+  (JavaScript로 백엔드 개발 가능:
+  프론트와 백을 모두 JS로 작성할 수 있어 생산성 향상)
+  npm(Node Package Manager): 오픈 소스 패키지 제공
+
+  1. node.js 설치
+    
+    node.js -> https://nodejs.org/ko
+    
+[React]
+
+  프론트엔드 개발에서 매우 널리 쓰이는 javascript 라이브러리
+  컴포넌트 기반의 구조로 빠르고 동적인 웹 애플리케이션 개발
+  SPA(Single Page Application)
+  변경된 부분만 가상 DOM(Virtual DOM)을 통해 효율적으로 업데이트
+  * tool chain: 리액트를 개발하는데 필요한 환경을 기본적으로 제공하는 도구
+
+  [프로젝트 생성 도구]
+    create-react-app: 공식 CLI, 구성이 자동화됨 (단점: 느림, 설정 제한) - 2.번 방식
+    Vite            : 빠르고 가벼운 번들러, 최신 트렌드. 점점 대세
+
+  ※ 폴더명이 React라면 동작 시 오류 가능성이 있어 폴더명을 ReactApp 등으로 변경해야한다.
+
+  2. Vs-code에서 ctrl + j -> powershell(default) -> command prompt 선택
+
+    npx create-react-app my-app (설치 안되면 Vs-code 재부팅)
+    (y)
+    cd my-app (설치된 폴더로 이동)
+    npm start (react 실행)
+    --------------------------------------------------------------------------
+    종료는 ctrl + c
+
+    * npm start: starts the development server.
+    * npm run build: Bundles the app into static files for production.
+
+    - public 폴더 (= static 폴더)
+      정적(static)인 파일을 보관하는 곳
+      이미지, 폰트, manifest, favicon 등
+      경로="/public 안의 경로"
+
+[Vite로 프로젝트 생성]
+
+  2.번에서의 위치 F:\ReactEx\reactapp\[my-app] 에서 상위 폴더로 이동 -> cd..
+  npm create vite@latest
+  프로젝트명(= 폴더명) 지정
+  프레임워크 선택(React) - 방향키로 React 선택
+  언어 - JavaScript 선택
+  폴더(프로젝트) 이동 후 -> cd react1 (프로젝트명(폴더명)으로 지정, 생성한 react1 경로로 이동)
+  npm i
+  npm run development
+  h + Enter(show help)
+  o + Enter(open browser)
+  q + Enter(quit server)
+
+  * .jsx 확장자
+    - Java Script XML
+    - js 코드 안에 html태그를 사용하는 jsx문법
+    - 컴포넌트 태그 사용 시 함수 호출로 변경되어 수행
+
+  * 컴포넌트
+    서로 연관된 코드들을 묶고 이름을 붙여서 단순한 태그로 만듦
+    -> 사용자 정의 태그(첫글자 대문자), 일반적으로 파일 하나에 커스텀 태그 1개
+    사용자 정의 태그(= 컴포넌트)를 부품처럼 사용하자!
+
+    컴포넌트 함수 선언
+    컴포넌트 태그 호출
+
+[JSX 문법 정리]
+  컴포넌트 함수 return(html처럼 보이지만 JS코드 안에서 xml문법 사용);
+
+  1. 반드시 하나의 부모 요소로 감싸야 한다.
+    ex) return ( -- X
+          <h1> Title </h1>
+          <p> Content </p>
+        );
+    ex) return (
+        <div> -- O
+          <h1> Title </h1>
+          <p> Content </p>
+        </div>
+        );
+
+  2. { }를 이용해 JS코드 삽입 가능
+    let name = "kim";
+    return (
+      <h1> name </h1> --> name이라는 문자열 그대로 출력
+      <h1> {name} </h1> --> name에 저장된 문자열 출력
+    );
+
+  3. 변수, 함수 호출, 삼항연산자 등 표현식만 가능 (조건(if), 반복문(for)은 JSX밖에서 사용)
+    ex) 삼항연산
+      function Login(state) {
+        return (
+          <p> {state ? "로그인 성공" : "로그인 실패"} </p>
+        );
+      }
+
+    ex) 반복: map()
+    * 배열을 렌더링할 때는 key속성이 필수
+      function list({todos}) {
+        return (
+          <ul>
+            {todos.map((todo, index) => 
+              <li key={index}> {todo} </li>
+            )}
+          </ul>        
+        );
+      }
+
+  4. 태그의 속성은 카멜 표기법 사용
+    return (
+      <>
+        <h1 onClick={함수명}> Title </h1> --> 태그의 속성 중 두번째 단어부터 대문자(카멜 표기법)
+        <p className="클래스명" id="content"> Content </p>
+      </>
+    );
+
+    대소문자 구별이 없던 html과 달리 반드시 구분
+    onclick -> onClick
+    class -> className
+    <label for -> htmlFor> -> 라벨 태그의 for 속성은 문법적으로 헷갈릴 수 있어 htmlFor로 사용된다.
+
+  5. 주석
+    1. 외부
+      // 주석
+      /* 주석 */
+
+    return (
+      2. 내부
+      {/* JSX내부에서는 해당 방식으로 주석 처리 */}
+    );
+
+  컴포넌트 태그 -> 속성 지정 가능
+
+  지정한 속성값을 함수에서 받아서 사용할 수 있음.
