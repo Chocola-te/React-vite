@@ -50,7 +50,7 @@
   언어 - JavaScript 선택
   폴더(프로젝트) 이동 후 -> cd react1 (프로젝트명(폴더명)으로 지정, 생성한 react1 경로로 이동)
   npm i
-  npm run development
+  npm run dev
   h + Enter(show help)
   o + Enter(open browser)
   q + Enter(quit server)
