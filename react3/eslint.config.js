@@ -23,9 +23,7 @@ export default defineConfig([
       },
     },
     rules: {
-      // 추가 > 후 같은 이름으로 오류 시 주석 처리
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      // 추가
       'no-unused-vars': 'off',
       'react/prop-types': 'off',
     },

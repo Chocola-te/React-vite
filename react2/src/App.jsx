@@ -1,33 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Button1 from './components/Button1'
+import Button2 from './components/Button2'
+import FormExample from './components/Form'
+
+// useState 사용 시 import 필요
+import { useState } from 'react'
+
+import Count from './components/Count'
+import Parent from './components/Parent'
+import ChangeColor from './components/ChangeColor'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // const state = useState(1);
+  // console.log(state);
+
+  const [state, setState] = useState(0);
+  console.log(state);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/*
+      <FormExample />
+      <Button1 text={"클라우드"} color={"blue"} a={1}></Button1>
+      <Button1 text={"apple"}></Button1>
+      <Button2 />
+      */}
+      
+      {/*
+            <h1>{state}</h1>
+      // 버튼을 눌렀을 때 리렌더링되어 값이 더해진다.
+      <button onClick={() => {
+        setState(state + 1);
+      }}> + </button>
+      */}
+
+      {/* setState는 비동기로 버튼을 클릭해도 Form input데이터가 변하지 않는다. */}
+      <FormExample />
+      <hr />
+      <Count />
+      <hr />
+      <Parent />
+      <hr />
+      <ChangeColor />
     </>
   )
 }
