@@ -49,8 +49,8 @@
   프레임워크 선택(React) - 방향키로 React 선택
   언어 - JavaScript 선택
   폴더(프로젝트) 이동 후 -> cd react1 (프로젝트명(폴더명)으로 지정, 생성한 react1 경로로 이동)
-  npm i
-  npm run development
+  npm i (install) -> 프로젝트 생성 및 npm install 확인은 package.json 생성 여부 확인
+  npm run dev (development)
   h + Enter(show help)
   o + Enter(open browser)
   q + Enter(quit server)
@@ -65,23 +65,29 @@
     -> 사용자 정의 태그(첫글자 대문자), 일반적으로 파일 하나에 커스텀 태그 1개
     사용자 정의 태그(= 컴포넌트)를 부품처럼 사용하자!
 
-    컴포넌트 함수 선언
-    컴포넌트 태그 호출
+    - 컴포넌트 함수 선언(첫글자 대문자)
+      const 함수명 = () => {
+        // 로직 수행(== JavaScript code)
+        return (보내질 태그);
+      }
+
+    - 컴포넌트 태그 호출
+      <함수명 /> or <함수명> </함수명>
 
 [JSX 문법 정리]
   컴포넌트 함수 return(html처럼 보이지만 JS코드 안에서 xml문법 사용);
 
-  1. 반드시 하나의 부모 요소로 감싸야 한다.
-    ex) return ( -- X
-          <h1> Title </h1>
-          <p> Content </p>
-        );
-    ex) return (
-        <div> -- O
-          <h1> Title </h1>
-          <p> Content </p>
-        </div>
-        );
+  1. 최상위 태그는 반드시 하나의 부모 요소로 감싸야 한다. (1. h1, p태그 2개 - X | 2. div 최상위 태그 1개 - O)
+    ex1) return ( -- X
+            <h1> Title </h1>
+            <p> Content </p>
+          );
+    ex2) return (
+          <div> -- O
+            <h1> Title </h1>
+            <p> Content </p>
+          </div>
+          );
 
   2. { }를 이용해 JS코드 삽입 가능
     let name = "kim";
@@ -105,6 +111,7 @@
           <ul>
             {todos.map((todo, index) => 
               <li key={index}> {todo} </li>
+              // (렌더는 가능하지만 console 오류)
             )}
           </ul>        
         );
@@ -139,8 +146,9 @@
 
   매개변수
   (props): 변수 한개 선언 시 모든 속성값을 한번에 받는다.
-    {props.속성명}
-    
-    {속성명, 속성명, 속성명="기본값"}: 이름에 맞게 저장
-    {속성명, 속성명, children}:
-      이름에 맞게 저장, children은 자식 위치에 선언한 컴포넌트 태그, 문자열, 배열 등을 받아온다.
+          {props.속성명}
+  
+  ({속성명, 속성명, 속성명="기본값"}): 이름에 맞게 저장
+
+  ({속성명, 속성명, children}):
+    이름에 맞게 저장, children은 자식 위치에 선언한 컴포넌트 태그, 문자열, 배열 등을 받아온다.
