@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  height: 100vh;
+  background-color: #fafcff;
+}
+
+.App {
+  text-align: center;
+}
+
+.todo-list {
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 60%;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /*
+  1. 옵션이 없을 때 - button 내부 속성까지 전부 적용
+    transition: 2.0s ease; => text-color, bg-color
+
+  2. 옵션이 있을 때 - 명시한 속성만 적용
+    transition: background-color 2.0s ease; => bg-color만
+    transition: color 2.0s ease; => text-color만
+  */
+}
+
+button:hover {
+  background-color: #0056b3;
+  /*
+  background-color: black;
+  color: rgb(255, 0, 0);
+  */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #ff4d4d;
+  margin-left: 10px;
+}
+
+li button:hover {
+  background-color: #cc0000;
+}
