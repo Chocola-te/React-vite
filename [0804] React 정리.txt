@@ -48,7 +48,7 @@
   프로젝트명(= 폴더명) 지정
   프레임워크 선택(React) - 방향키로 React 선택
   언어 - JavaScript 선택
-  폴더(프로젝트) 이동 후 -> cd react1 (프로젝트명(폴더명)으로 지정, 생성한 react1 경로로 이동)
+  폴더(프로젝트) 이동 후 -> cd react1 (프로젝트명(폴더명)으로 지정, 생성한 react1 경로로 이동) / (cd ./ + tab -> 현재 폴더에서 하위 폴더 보여줌)
   npm i (install) -> 프로젝트 생성 및 npm install 확인은 package.json 생성 여부 확인
   npm run dev (development)
   h + Enter(show help)
