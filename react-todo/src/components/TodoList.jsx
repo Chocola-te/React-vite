@@ -1,9 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, createElement } from "react";
 
 function TodoList() {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState("");
-  const todoRef = useRef();
+  const [todos, setTodos] = useState([]); // 저장된 할 일
+  const [newTodo, setNewTodo] = useState(""); // 저장할 할 일
+  const todoRef = useRef(); // focus용 Ref
 
   const handleInputChange = (e) => {
     setNewTodo(e.target.value);
@@ -23,7 +23,8 @@ function TodoList() {
   };
 
 
-  const handleSubmit = (index) => {
+  const handleSubmit = () => {
+    createElement('input')
   }
 
   return (
@@ -41,7 +42,6 @@ function TodoList() {
         {todos.map((todo, index) => (
           <li key={index}>
             {todo}
-            <button onClick={() => handleSubmit(index)}>Update</button>
             <button onClick={() => handleDeleteTodo(index)}>Delete</button>
           </li>
         ))}
