@@ -1,0 +1,52 @@
+[React context api]
+
+  - 컴포넌트 트리 안에서 전역적으로 데이터를 공유할 수 있게 해주는 기능
+  - 상위 컴포넌트가 Context에 저장해두면 자식 컴포넌트가 꺼내서 사용할 수 있음
+    (props로 받지 않아도 값을 가져올 수 있다.)
+  - 여러 컴포넌트에서 공통으로 사용하는 값 관리
+
+  createContext(기본값);
+  useContext(컨텍스트 객체)
+
+  Context.provider로 감싸진 컴포넌트 트리 안에서만 가능
+
+  1. context 생성
+  2. 최상위 컴포넌트에서 Provider로 감싸기
+  3. 하위 컴포넌트에서 값 사용
+
+[useReducer]
+
+  : 주어진 상태와 이를 갱신하는 로직을 reducer 함수를 통해 분리
+  : 새로운 상태 발생시 - 연결된 함수 실행
+    (useState가 새로운 state(상태)가 저장되면 리랜더링 하는 것과 비슷)
+
+  특정 상태가 되면 리듀서(전체 관리자)가 
+  다른 함수(해당 기능만 담당자)을 동작시킴
+
+  import { useReducer } from 'react';
+
+  const [state, dispatch] 
+  = useReducer(reducer, initialState);
+
+  function 리듀서 함수(oldstate(기존 상태), action(명령) {
+    명령에 맞게 상태값 변경
+    return 변경된 상태;
+  })
+
+  state: 현재 상태
+  dispatch: 상태를 변경하기 위한 함수 (액션을 보냄)
+  reducer: 상태를 업데이트하는 함수
+  initialState: 초기 상태
+
+
+  1. dispatch함수에 action 넘겨주면
+  2. reducer함수의 두번째 함수로 action 전달, reducer 함수는 액션의 타입에 따라 state를 변경하고
+  3. 새로운 상태 객체를 반환.
+     이 새로운 상태가 기존 상태와 다르면 컴포넌트는 리렌더링.
+
+  사용자가 직접 state를 사용하는 것이 아니라 
+  주문(액션값)만 주고 state에 대한 구체적인 처리는 reducer가 처리
+
+  언제 쓰냐!!
+  - 여러 액션 타입에 따라 상태 변화가 다양한 경우
+  - 상태 업데이트 로직이 조건문으로 길어지는 경우
