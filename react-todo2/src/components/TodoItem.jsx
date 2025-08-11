@@ -1,4 +1,5 @@
 const TodoItem = ({ id, text, done, createdDate, priority, onToggle, onDelete }) => {
+
   return (
     <div style={{ marginBottom: "8px" }}>
       <span
@@ -11,6 +12,9 @@ const TodoItem = ({ id, text, done, createdDate, priority, onToggle, onDelete })
       >
         {text}
       </span>
+      {/* ex) const array = [1,2,3]
+              array[0] -> 1
+              === [1,2,3][0] -> 1 */}
       <span>({["높음", "중간", "낮음"][priority - 1]})</span>
       <span style={{ marginLeft: "10px", color: "gray" }}>
         {new Date(createdDate).toLocaleString()}
@@ -20,6 +24,7 @@ const TodoItem = ({ id, text, done, createdDate, priority, onToggle, onDelete })
       </button>
     </div>
   );
+  
 };
 
 export default TodoItem;

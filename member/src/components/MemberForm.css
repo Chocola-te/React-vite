@@ -1,0 +1,69 @@
+.form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form input,
+.form select,
+.form button {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.form button {
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.7s ease;
+}
+
+.form button[type="button"] {
+  background-color: #f0f0f0;
+  color: #333;
+  transition: 0.7s ease;
+}
+
+.form button:hover {
+  background-color: #357ABD;
+  color: white;
+}
+
+.form button[type="button"]:hover {
+  background-color: #ddd;
+}
+
+.file, .file::file-selector-button {
+  border: none;
+  border-radius: 4px;
+  color: #6c6c6c;
+  transition: 0.7s ease;
+  &.file::file-selector-button:hover {
+    color: white;
+    background-color: #ddd;
+  }
+}
+
+.img {
+  width: 40px;
+  transition: 0.7s ease;
+}

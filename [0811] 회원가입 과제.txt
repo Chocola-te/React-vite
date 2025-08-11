@@ -1,0 +1,20 @@
+회원가입 웹 어플리케이션
+
+- 개발환경 
+  DB: mysql
+  back-end:  spring boot, spring data jpa
+  front-end: react, axois   
+
+회원 추가
+  - 회원정보는 id_no, id, name, image, phone, address, role를 저장
+  - id_no: 일련번호
+  - image: static/img 폴더에 저장하고 DB에는 이미지 경로만 저장
+  - address는daum 우편번호 서비스(https://postcode.map.daum.net/guide)를 사용(프론트)
+
+react-router-dom 인스톨 후
+  서버 -> get방식 요청받아 모든 레코드 리턴하는 getAllMembers() 선언
+  클라이언트 -> "/" 요청 시 MemberForm 출력
+              "/members" 요청 시 MemberList 출력
+  MemberList
+  처음 렌더링 시 axios.get()으로 모든 레코드 받아와서 state에 저장
+  저장된 데이터 출력(이미지도 포함)

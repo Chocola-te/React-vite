@@ -1,0 +1,13 @@
+.list {
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #ccc;
+  color: white;
+  transition: 0.7s ease;
+  &:hover {
+    background-color: rgb(190, 230, 255);
+    color: rgb(74, 158, 255);
+  }
+}
