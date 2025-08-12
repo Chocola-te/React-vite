@@ -1,0 +1,18 @@
+* {
+  text-align: center;
+}
+button {
+  border: none;
+  border-radius: 15px;
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: skyblue;
+  color: white;
+  transition: 0.5s ease;
+  &:hover {
+    background-color: blue;
+  }
+}
