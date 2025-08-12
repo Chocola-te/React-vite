@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './MemberList.css'
 
 export default function MemberList() {
   const [members, setMembers] = useState([]);
@@ -27,6 +28,7 @@ export default function MemberList() {
           setLoading(true);
           const res = await axios.delete(`http://localhost:8080/api/members/delete/${idNo}`);
           alert("삭제되었습니다.");
+          setMembers(members.filter((item) => item.idNo !== idNo));
         }
       } catch(err) {
         setError("회원 삭제 실패했습니다.");
@@ -35,7 +37,6 @@ export default function MemberList() {
       }
     };
     deleteMember();
-    setMembers(members.filter((item) => item.idNo !== idNo));
   };
 
   if (loading) return <p>로딩 중...</p>;
